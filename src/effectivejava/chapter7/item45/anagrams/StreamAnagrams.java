@@ -16,7 +16,7 @@ public class StreamAnagrams {
 
         try (Stream<String> words = Files.lines(dictionary)) {
             words.collect(
-                    groupingBy(word -> word.chars().sorted()
+                    groupingBy(word -> word.codePoints().sorted()
                             .collect(StringBuilder::new,
                                     (sb, c) -> sb.append((char) c),
                                     StringBuilder::append).toString()))

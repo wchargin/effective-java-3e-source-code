@@ -24,8 +24,7 @@ public class HybridAnagrams {
     }
 
     private static String alphabetize(String s) {
-        char[] a = s.toCharArray();
-        Arrays.sort(a);
-        return new String(a);
+        int[] newCodePoints = s.codePoints().sorted().toArray();
+        return new String(newCodePoints, 0, newCodePoints.length);
     }
 }
